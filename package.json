@@ -8,6 +8,7 @@
   "scripts": {
     "build": "pnpm -r build",
     "test": "pnpm -r test",
+    "test:contract": "pnpm --filter labuba-contract test",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
     "format": "prettier --write .",
     "ci": "pnpm install && pnpm lint && pnpm build && pnpm test"

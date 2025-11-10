@@ -7,6 +7,14 @@ dist/
 *.tsbuildinfo
 .turbo
 
+# Hardhat
+cache/
+artifacts/
+typechain-types/
+coverage/
+coverage.json
+deployments/*.json
+
 # Environment
 .env
 .env.local
