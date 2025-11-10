@@ -36,8 +36,8 @@ contract LabubaNFT is ERC721, ERC721URIStorage, ERC2981, Ownable, ReentrancyGuar
         uint96 feeNumerator
     );
 
-    constructor() ERC721("Labuba NFT", "LABUBA") Ownable(msg.sender) {
-        _setDefaultRoyalty(msg.sender, DEFAULT_ROYALTY_BPS);
+    constructor(address initialOwner) ERC721("Labuba NFT", "LABUBA") Ownable(initialOwner) {
+        _setDefaultRoyalty(initialOwner, DEFAULT_ROYALTY_BPS);
     }
 
     function mint(uint256 fid, string memory tokenURI_) external payable nonReentrant {

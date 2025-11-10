@@ -20,6 +20,9 @@ deployments/*.json
 .env.local
 .env.*.local
 
+# Deployment addresses (may contain sensitive info)
+MAINNET_ADDRESS.txt
+
 # IDE
 .vscode/
 .idea/

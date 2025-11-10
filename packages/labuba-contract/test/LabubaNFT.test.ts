@@ -15,7 +15,7 @@ describe("LabubaNFT", function () {
     const [owner, user1, user2, user3] = await ethers.getSigners();
 
     const LabubaNFT = await ethers.getContractFactory("LabubaNFT");
-    const labubaNFT = await LabubaNFT.deploy();
+    const labubaNFT = await LabubaNFT.deploy(owner.address);
 
     return { labubaNFT, owner, user1, user2, user3 };
   }
