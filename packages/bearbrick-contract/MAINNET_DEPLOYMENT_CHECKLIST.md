@@ -71,7 +71,7 @@ npx hardhat verify --network base-mainnet <CONTRACT_ADDRESS> "0x4CA964d1A084628a
 - [ ] Add BaseScan link to documentation
 
 ### Frontend Integration
-- [ ] Update frontend `.env` with `NEXT_PUBLIC_LABUBA_CONTRACT_ADDRESS`
+- [ ] Update frontend `.env` with `NEXT_PUBLIC_BEARBRICK_CONTRACT_ADDRESS`
 - [ ] Test frontend contract interaction
 - [ ] Verify OpenSea integration (if applicable)
 

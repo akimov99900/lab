@@ -2,7 +2,7 @@
 
 ## 🎯 Objective
 
-Deploy the LabubaNFT smart contract to Base mainnet for production use with the following specifications:
+Deploy the BearBrickNFT smart contract to Base mainnet for production use with the following specifications:
 - **Owner Address**: 0x4CA964d1A084628aFCef42680cC955a263158A8F
 - **Mint Price**: 0.00001 ETH
 - **Royalty**: 2% (200 basis points)
@@ -44,15 +44,15 @@ pnpm deploy:base-mainnet
 
 **Expected Output:**
 ```
-🚀 Deploying LabubaNFT contract to Base Mainnet...
+🚀 Deploying BearBrickNFT contract to Base Mainnet...
 Network: base-mainnet
 Chain ID: 8453
 Deploying with account: 0x...
 Account balance: X.XXX ETH
 Contract owner will be set to: 0x4CA964d1A084628aFCef42680cC955a263158A8F
-Deploying LabubaNFT contract...
+Deploying BearBrickNFT contract...
 Waiting for deployment transaction confirmation...
-✅ LabubaNFT deployed to: 0x...
+✅ BearBrickNFT deployed to: 0x...
 ```
 
 ### Step 2: Verify Contract Deployment
@@ -120,7 +120,7 @@ Update your frontend environment:
 
 ```bash
 # In your frontend .env file
-NEXT_PUBLIC_LABUBA_CONTRACT_ADDRESS=<DEPLOYED_CONTRACT_ADDRESS>
+NEXT_PUBLIC_BEARBRICK_CONTRACT_ADDRESS=<DEPLOYED_CONTRACT_ADDRESS>
 NEXT_PUBLIC_BASE_RPC_URL=https://mainnet.base.org
 ```
 

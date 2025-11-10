@@ -1,6 +1,6 @@
 # Deployment Guide
 
-Complete guide for deploying the LabubaNFT contract to Base networks.
+Complete guide for deploying the BearBrickNFT contract to Base networks.
 
 ## Prerequisites
 
@@ -101,11 +101,11 @@ pnpm deploy:base-sepolia
 
 Expected output:
 ```
-Deploying LabubaNFT contract...
+Deploying BearBrickNFT contract...
 Network: baseSepolia
 Deploying with account: 0x...
 Account balance: 0.05 ETH
-LabubaNFT deployed to: 0x...
+BearBrickNFT deployed to: 0x...
 
 Deployment info saved to: deployments/baseSepolia.json
 
@@ -144,8 +144,8 @@ npx hardhat console --network baseSepolia
 
 Test minting:
 ```javascript
-const LabubaNFT = await ethers.getContractFactory("LabubaNFT");
-const contract = LabubaNFT.attach("<CONTRACT_ADDRESS>");
+const BearBrickNFT = await ethers.getContractFactory("BearBrickNFT");
+const contract = BearBrickNFT.attach("<CONTRACT_ADDRESS>");
 
 // Mint an NFT
 const mintPrice = await contract.MINT_PRICE();
@@ -212,7 +212,7 @@ Update your frontend environment variables with the mainnet address:
 
 ```bash
 # In your Next.js or frontend .env.production
-NEXT_PUBLIC_LABUBA_NFT_ADDRESS=<CONTRACT_ADDRESS>
+NEXT_PUBLIC_BEARBRICK_NFT_ADDRESS=<CONTRACT_ADDRESS>
 NEXT_PUBLIC_NETWORK=base
 NEXT_PUBLIC_CHAIN_ID=8453
 ```

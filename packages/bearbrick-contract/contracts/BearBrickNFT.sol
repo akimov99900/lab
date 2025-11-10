@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/common/ERC2981.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
-contract LabubaNFT is ERC721, ERC721URIStorage, ERC2981, Ownable, ReentrancyGuard {
+contract BearBrickNFT is ERC721, ERC721URIStorage, ERC2981, Ownable, ReentrancyGuard {
     uint256 public constant MINT_PRICE = 0.00001 ether;
     uint96 public constant DEFAULT_ROYALTY_BPS = 200; // 2%
 
@@ -36,7 +36,7 @@ contract LabubaNFT is ERC721, ERC721URIStorage, ERC2981, Ownable, ReentrancyGuar
         uint96 feeNumerator
     );
 
-    constructor(address initialOwner) ERC721("Labuba NFT", "LABUBA") Ownable(initialOwner) {
+    constructor(address initialOwner) ERC721("BearBrick NFT", "BEARBRICK") Ownable(initialOwner) {
         _setDefaultRoyalty(initialOwner, DEFAULT_ROYALTY_BPS);
     }
 

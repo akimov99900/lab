@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 async function main() {
-  console.log("🧪 Testing LabubaNFT contract deployment...");
+  console.log("🚀 Deploying BearBrickNFT contract to Base Mainnet...");
   console.log("Network:", network.name);
   console.log("Chain ID:", network.config.chainId);
 
@@ -15,25 +15,30 @@ async function main() {
   const ownerAddress = "0x4CA964d1A084628aFCef42680cC955a263158A8F";
   console.log("Contract owner will be set to:", ownerAddress);
 
-  console.log("Deploying LabubaNFT contract...");
-  const LabubaNFT = await ethers.getContractFactory("LabubaNFT");
-  const labubaNFT = await LabubaNFT.deploy(ownerAddress);
+  // Verify we're on Base mainnet
+  if (network.config.chainId !== 8453) {
+    throw new Error(`Expected chain ID 8453 (Base mainnet), got ${network.config.chainId}`);
+  }
+
+  console.log("Deploying BearBrickNFT contract...");
+  const BearBrickNFT = await ethers.getContractFactory("BearBrickNFT");
+  const bearBrickNFT = await BearBrickNFT.deploy(ownerAddress);
 
   console.log("Waiting for deployment transaction confirmation...");
-  await labubaNFT.waitForDeployment();
+  await bearBrickNFT.waitForDeployment();
 
-  const contractAddress = await labubaNFT.getAddress();
-  console.log("✅ LabubaNFT deployed to:", contractAddress);
+  const contractAddress = await bearBrickNFT.getAddress();
+  console.log("✅ BearBrickNFT deployed to:", contractAddress);
 
   // Get deployment transaction hash
-  const deploymentTx = labubaNFT.deploymentTransaction();
+  const deploymentTx = bearBrickNFT.deploymentTransaction();
   const txHash = deploymentTx?.hash || "unknown";
   console.log("📝 Deployment transaction hash:", txHash);
 
   // Verify contract configuration
-  const mintPrice = await labubaNFT.MINT_PRICE();
-  const defaultRoyalty = await labubaNFT.DEFAULT_ROYALTY_BPS();
-  const contractOwner = await labubaNFT.owner();
+  const mintPrice = await bearBrickNFT.MINT_PRICE();
+  const defaultRoyalty = await bearBrickNFT.DEFAULT_ROYALTY_BPS();
+  const contractOwner = await bearBrickNFT.owner();
 
   console.log("\n🔍 Contract Configuration:");
   console.log("- Mint Price:", ethers.formatEther(mintPrice), "ETH");
@@ -53,6 +58,8 @@ async function main() {
     mintPrice: ethers.formatEther(mintPrice),
     defaultRoyaltyBps: defaultRoyalty.toString(),
     defaultRoyaltyPercentage: (Number(defaultRoyalty) / 100) + "%",
+    basescanUrl: `https://basescan.org/address/${contractAddress}`,
+    transactionUrl: `https://basescan.org/tx/${txHash}`,
   };
 
   // Save deployment info
@@ -61,27 +68,40 @@ async function main() {
     fs.mkdirSync(deploymentsDir, { recursive: true });
   }
 
-  const deploymentFile = path.join(deploymentsDir, `${network.name}-test.json`);
+  const deploymentFile = path.join(deploymentsDir, `${network.name}.json`);
   fs.writeFileSync(deploymentFile, JSON.stringify(deploymentInfo, null, 2));
 
-  console.log("\n📁 Test deployment info saved to:", deploymentFile);
+  // Save contract address to separate file for easy access
+  const addressFile = path.join(__dirname, "..", "MAINNET_ADDRESS.txt");
+  fs.writeFileSync(addressFile, contractAddress);
 
-  console.log("\n🎉 Test Deployment Summary:");
-  console.log("===========================");
+  console.log("\n📁 Deployment files saved:");
+  console.log("- Deployment info:", deploymentFile);
+  console.log("- Contract address:", addressFile);
+
+  console.log("\n🎉 Deployment Summary:");
+  console.log("=====================");
   console.log("Contract Address:", contractAddress);
   console.log("Network:", network.name, "(Chain ID:", network.config.chainId, ")");
   console.log("Mint Price:", deploymentInfo.mintPrice, "ETH");
   console.log("Default Royalty:", deploymentInfo.defaultRoyaltyPercentage);
   console.log("Owner:", deploymentInfo.owner);
   console.log("Deployer:", deployer.address);
+  console.log("BaseScan:", deploymentInfo.basescanUrl);
+  console.log("Transaction:", deploymentInfo.transactionUrl);
 
-  console.log("\n✅ Test deployment completed successfully!");
-  console.log("Contract is ready for mainnet deployment.");
+  console.log("\n🔧 To verify the contract on BaseScan, run:");
+  console.log(`npx hardhat verify --network ${network.name} ${contractAddress} "${ownerAddress}"`);
+
+  console.log("\n📝 Next steps:");
+  console.log("1. Verify contract on BaseScan using the command above");
+  console.log("2. Update frontend environment with contract address");
+  console.log("3. Test contract functionality on mainnet");
 }
 
 main()
   .then(() => process.exit(0))
   .catch((error) => {
-    console.error("❌ Test deployment failed:", error);
+    console.error("❌ Deployment failed:", error);
     process.exit(1);
   });

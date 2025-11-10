@@ -3,7 +3,7 @@ import * as fs from "fs";
 import * as path from "path";
 
 async function main() {
-  console.log("Deploying LabubaNFT contract...");
+  console.log("Deploying BearBrickNFT contract...");
   console.log("Network:", network.name);
 
   const [deployer] = await ethers.getSigners();
@@ -14,13 +14,13 @@ async function main() {
   const ownerAddress = "0x4CA964d1A084628aFCef42680cC955a263158A8F";
   console.log("Contract owner will be set to:", ownerAddress);
 
-  const LabubaNFT = await ethers.getContractFactory("LabubaNFT");
-  const labubaNFT = await LabubaNFT.deploy(ownerAddress);
+  const BearBrickNFT = await ethers.getContractFactory("BearBrickNFT");
+  const bearBrickNFT = await BearBrickNFT.deploy(ownerAddress);
 
-  await labubaNFT.waitForDeployment();
+  await bearBrickNFT.waitForDeployment();
 
-  const contractAddress = await labubaNFT.getAddress();
-  console.log("LabubaNFT deployed to:", contractAddress);
+  const contractAddress = await bearBrickNFT.getAddress();
+  console.log("BearBrickNFT deployed to:", contractAddress);
 
   const deploymentInfo = {
     network: network.name,
@@ -29,7 +29,7 @@ async function main() {
     deployer: deployer.address,
     owner: ownerAddress,
     deploymentTime: new Date().toISOString(),
-    mintPrice: ethers.formatEther(await labubaNFT.MINT_PRICE()),
+    mintPrice: ethers.formatEther(await bearBrickNFT.MINT_PRICE()),
     defaultRoyalty: "2%",
   };
 

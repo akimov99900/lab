@@ -1,6 +1,6 @@
 # Usage Examples
 
-This document provides examples of how to interact with the LabubaNFT contract from a frontend application.
+This document provides examples of how to interact with the BearBrickNFT contract from a frontend application.
 
 ## Installation
 
@@ -14,8 +14,8 @@ pnpm add @lab/labuba-contract ethers
 
 ```typescript
 import { ethers } from "ethers";
-import { LabubaNFT__factory } from "@lab/labuba-contract";
-import type { LabubaNFT } from "@lab/labuba-contract";
+import { BearBrickNFT__factory } from "@lab/labuba-contract";
+import type { BearBrickNFT } from "@lab/labuba-contract";
 
 // Load deployment info
 import deployment from "@lab/labuba-contract/deployments/base.json";
@@ -24,7 +24,7 @@ import deployment from "@lab/labuba-contract/deployments/base.json";
 const provider = new ethers.JsonRpcProvider("https://mainnet.base.org");
 
 // Initialize contract instance
-const contract = LabubaNFT__factory.connect(
+const contract = BearBrickNFT__factory.connect(
   deployment.contractAddress,
   provider
 );
@@ -117,7 +117,7 @@ async function mintNFT(
   fid: number,
   tokenURI: string
 ): Promise<{ tokenId: bigint; txHash: string }> {
-  const contract = LabubaNFT__factory.connect(
+  const contract = BearBrickNFT__factory.connect(
     deployment.contractAddress,
     signer
   );
@@ -174,7 +174,7 @@ async function updateTokenURI(
   tokenId: number,
   newURI: string
 ): Promise<string> {
-  const contract = LabubaNFT__factory.connect(
+  const contract = BearBrickNFT__factory.connect(
     deployment.contractAddress,
     signer
   );
@@ -203,7 +203,7 @@ async function transferNFT(
   to: string,
   tokenId: number
 ): Promise<string> {
-  const contract = LabubaNFT__factory.connect(
+  const contract = BearBrickNFT__factory.connect(
     deployment.contractAddress,
     signer
   );
@@ -229,20 +229,20 @@ console.log("Transferred! Transaction:", txHash);
 import { useMemo } from "react";
 import { ethers } from "ethers";
 import { useProvider, useSigner } from "wagmi"; // or your Web3 library
-import { LabubaNFT__factory } from "@lab/labuba-contract";
+import { BearBrickNFT__factory } from "@lab/labuba-contract";
 
-export function useLabubaNFT(needsSigner = false) {
+export function useBearBrickNFT(needsSigner = false) {
   const provider = useProvider();
   const { data: signer } = useSigner();
 
   return useMemo(() => {
-    const contractAddress = process.env.NEXT_PUBLIC_LABUBA_NFT_ADDRESS!;
+    const contractAddress = process.env.NEXT_PUBLIC_BEARBRICK_NFT_ADDRESS!;
     
     if (needsSigner && signer) {
-      return LabubaNFT__factory.connect(contractAddress, signer);
+      return BearBrickNFT__factory.connect(contractAddress, signer);
     }
     
-    return LabubaNFT__factory.connect(contractAddress, provider);
+    return BearBrickNFT__factory.connect(contractAddress, provider);
   }, [provider, signer, needsSigner]);
 }
 ```
@@ -251,13 +251,13 @@ export function useLabubaNFT(needsSigner = false) {
 
 ```typescript
 import { useEffect, useState } from "react";
-import { useLabubaNFT } from "./useLabubaNFT";
+import { useBearBrickNFT } from "./useBearBrickNFT";
 
 export function useMintStatus(fid: number | null) {
   const [hasMinted, setHasMinted] = useState(false);
   const [tokenId, setTokenId] = useState<bigint | null>(null);
   const [loading, setLoading] = useState(false);
-  const contract = useLabubaNFT();
+  const contract = useBearBrickNFT();
 
   useEffect(() => {
     if (!fid) return;
@@ -294,12 +294,12 @@ function MintButton({ fid }: { fid: number }) {
 
 ```typescript
 import { useState } from "react";
-import { useLabubaNFT } from "./useLabubaNFT";
+import { useBearBrickNFT } from "./useBearBrickNFT";
 
 export function useMint() {
   const [isMinting, setIsMinting] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  const contract = useLabubaNFT(true); // needs signer
+  const contract = useBearBrickNFT(true); // needs signer
 
   const mint = async (fid: number, tokenURI: string) => {
     setIsMinting(true);
@@ -380,10 +380,10 @@ async function safeMint(fid: number, tokenURI: string) {
 ## TypeScript Type Safety
 
 ```typescript
-import type { LabubaNFT } from "@lab/labuba-contract";
+import type { BearBrickNFT } from "@lab/labuba-contract";
 
 // Function that accepts contract instance
-function processContract(contract: LabubaNFT) {
+function processContract(contract: BearBrickNFT) {
   // TypeScript knows all available methods and their signatures
   contract.mint(/* ... */);
   contract.tokenURI(/* ... */);
