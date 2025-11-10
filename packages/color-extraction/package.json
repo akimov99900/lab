@@ -1,0 +1,33 @@
+{
+  "name": "@lab/color-extraction",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "Extract dominant colors from Farcaster user avatars for BearBrick NFT generation",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "test": "vitest run"
+  },
+  "keywords": ["color", "extraction", "vibrant", "avatar", "farcaster", "nft"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "node-vibrant": "^4.0.3",
+    "@vibrant/color": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^7.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}
