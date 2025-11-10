@@ -1,8 +1,8 @@
-# LabubaNFT Contract Summary
+# BearBrickNFT Contract Summary
 
 ## Overview
 
-The LabubaNFT is a smart contract implementing ERC-721 and ERC-2981 standards, designed for Farcaster FID-based NFT minting on Base blockchain.
+The BearBrickNFT is a smart contract implementing ERC-721 and ERC-2981 standards, designed for Farcaster FID-based NFT minting on Base blockchain.
 
 ## Key Features
 
@@ -45,7 +45,7 @@ event RoyaltyUpdated(address indexed receiver, uint96 feeNumerator);
 
 ### Inheritance Tree
 ```
-LabubaNFT
+BearBrickNFT
 ├── ERC721 (OpenZeppelin)
 ├── ERC721URIStorage (OpenZeppelin)
 ├── ERC2981 (OpenZeppelin)
@@ -218,7 +218,7 @@ Based on Base network (estimates may vary):
 
 ### Frontend
 - TypeChain type generation for TypeScript
-- Exported ABI in `dist/abi/LabubaNFT.json`
+- Exported ABI in `dist/abi/BearBrickNFT.json`
 - Type-safe contract interaction
 - Event listening support
 
@@ -354,8 +354,8 @@ This provides:
 - CONTRACT_SUMMARY.md - This file
 
 ### Code
-- `contracts/LabubaNFT.sol` - Main contract
-- `test/LabubaNFT.test.ts` - Comprehensive tests
+- `contracts/BearBrickNFT.sol` - Main contract
+- `test/BearBrickNFT.test.ts` - Comprehensive tests
 - `scripts/deploy.ts` - Deployment script
 - `typechain-types/` - Generated TypeScript types
 

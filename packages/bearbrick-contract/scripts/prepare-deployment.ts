@@ -26,7 +26,7 @@ async function main() {
   console.log("✅ All required environment variables are set");
 
   // Check if contract is compiled
-  const artifactsPath = path.join(__dirname, "..", "artifacts", "contracts", "LabubaNFT.sol", "LabubaNFT.json");
+  const artifactsPath = path.join(__dirname, "..", "artifacts", "contracts", "BearBrickNFT.sol", "BearBrickNFT.json");
   if (!fs.existsSync(artifactsPath)) {
     console.log("❌ Contract not compiled. Please run: pnpm hardhat compile");
     process.exit(1);
@@ -40,9 +40,9 @@ async function main() {
   console.log("✅ Account balance:", ethers.formatEther(balance), "ETH");
 
   // Estimate deployment gas
-  const LabubaNFT = await ethers.getContractFactory("LabubaNFT");
+  const BearBrickNFT = await ethers.getContractFactory("BearBrickNFT");
   const ownerAddress = "0x4CA964d1A084628aFCef42680cC955a263158A8F";
-  const deploymentTx = await LabubaNFT.getDeployTransaction(ownerAddress);
+  const deploymentTx = await BearBrickNFT.getDeployTransaction(ownerAddress);
   
   const estimatedGas = await ethers.provider.estimateGas(deploymentTx);
   const gasPrice = await ethers.provider.getFeeData();

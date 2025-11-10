@@ -1,6 +1,6 @@
-# Labuba NFT Contract
+# BearBrick NFT Contract
 
-A Hardhat-based Solidity smart contract package for the Labuba NFT project. Implements ERC-721 and ERC-2981 standards with Farcaster FID-based minting.
+A Hardhat-based Solidity smart contract package for the BearBrick NFT project. Implements ERC-721 and ERC-2981 standards with Farcaster FID-based minting.
 
 ## Features
 
@@ -15,7 +15,7 @@ A Hardhat-based Solidity smart contract package for the Labuba NFT project. Impl
 
 ## Contract Architecture
 
-### LabubaNFT.sol
+### BearBrickNFT.sol
 
 The main contract inherits from:
 - `ERC721` - Standard NFT functionality
@@ -211,20 +211,20 @@ After building the package, the following files are available:
 
 ```typescript
 // Import TypeChain factory
-import { LabubaNFT__factory } from "@lab/labuba-contract";
+import { BearBrickNFT__factory } from "@lab/labuba-contract";
 
 // Import types
-import type { LabubaNFT } from "@lab/labuba-contract";
+import type { BearBrickNFT } from "@lab/labuba-contract";
 
 // Import raw ABI
-import LabubaNFTABI from "@lab/labuba-contract/abi";
+import BearBrickNFTABI from "@lab/labuba-contract/abi";
 ```
 
 ### Example: Connect to Deployed Contract
 
 ```typescript
 import { ethers } from "ethers";
-import { LabubaNFT__factory } from "@lab/labuba-contract";
+import { BearBrickNFT__factory } from "@lab/labuba-contract";
 
 // Load deployment info
 import deployment from "@lab/labuba-contract/deployments/base.json";
@@ -232,7 +232,7 @@ import deployment from "@lab/labuba-contract/deployments/base.json";
 // Connect to contract
 const provider = new ethers.JsonRpcProvider(process.env.BASE_RPC_URL);
 const signer = new ethers.Wallet(process.env.PRIVATE_KEY, provider);
-const labubaNFT = LabubaNFT__factory.connect(deployment.contractAddress, signer);
+const labubaNFT = BearBrickNFT__factory.connect(deployment.contractAddress, signer);
 
 // Mint an NFT
 const tx = await labubaNFT.mint(
@@ -269,11 +269,11 @@ The build process generates:
 ```
 dist/
 ├── abi/
-│   └── LabubaNFT.json         # Contract ABI
+│   └── BearBrickNFT.json         # Contract ABI
 ├── typechain-types/            # TypeChain generated types
-│   ├── LabubaNFT.ts
+│   ├── BearBrickNFT.ts
 │   ├── factories/
-│   │   └── LabubaNFT__factory.ts
+│   │   └── BearBrickNFT__factory.ts
 │   └── ...
 └── index.d.ts                  # TypeScript declarations
 ```

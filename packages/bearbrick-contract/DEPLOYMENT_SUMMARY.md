@@ -50,7 +50,7 @@
 | **Royalty** | 2% (200 bps) | Hardcoded constant |
 | **Payment Recipient** | 0x4CA964d1A084628aFCef42680cC955a263158A8F | Same as owner |
 | **Network** | Base Mainnet | Chain ID 8453 |
-| **Contract Name** | Labuba NFT | "LABUBA" symbol |
+| **Contract Name** | BearBrick NFT | "BEARBRICK" symbol |
 
 ## 🚀 Ready for Deployment
 

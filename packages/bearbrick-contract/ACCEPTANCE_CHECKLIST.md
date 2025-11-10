@@ -9,7 +9,7 @@ This document verifies that all requirements from the ticket have been implement
 - [x] **TypeChain generation** integrated and working
 - [x] **Scripts integrated** into workspace (package.json with build/test/deploy commands)
 
-## ✅ Contract Implementation (LabubaNFT.sol)
+## ✅ Contract Implementation (BearBrickNFT.sol)
 
 ### Core Features
 - [x] **ERC-721 compliance** (inherits from OpenZeppelin ERC721)
@@ -106,19 +106,19 @@ This document verifies that all requirements from the ticket have been implement
 ## ✅ Build Output & Export
 
 ### ABI Export
-- [x] **Compiled ABI** at `dist/abi/LabubaNFT.json` (49KB)
+- [x] **Compiled ABI** at `dist/abi/BearBrickNFT.json` (49KB)
 - [x] **Package export** configured for `@lab/labuba-contract/abi`
 
 ### TypeChain Types Export
 - [x] **TypeChain factories** generated in `typechain-types/`
 - [x] **Copied to dist** at `dist/typechain-types/`
-- [x] **LabubaNFT__factory** available for type-safe contract interaction
+- [x] **BearBrickNFT__factory** available for type-safe contract interaction
 - [x] **Type definitions** exported from main package
 
 ### Frontend Consumption
 - [x] **Package exports** configured in package.json
-- [x] **TypeScript types** available via `import type { LabubaNFT }`
-- [x] **Factory export** available via `import { LabubaNFT__factory }`
+- [x] **TypeScript types** available via `import type { BearBrickNFT }`
+- [x] **Factory export** available via `import { BearBrickNFT__factory }`
 - [x] **ABI import** available via `import ... from '@lab/labuba-contract/abi'`
 
 ## ✅ Documentation
@@ -150,7 +150,7 @@ This document verifies that all requirements from the ticket have been implement
 
 ### Output Verification
 ```
-✓ dist/abi/LabubaNFT.json exists (49KB)
+✓ dist/abi/BearBrickNFT.json exists (49KB)
 ✓ dist/typechain-types/ exists with all types
 ✓ typechain-types/ exists at root
 ✓ artifacts/ compiled successfully
@@ -160,7 +160,7 @@ This document verifies that all requirements from the ticket have been implement
 ## 🎯 Acceptance Criteria Met
 
 1. ✅ **Package exists**: `packages/labuba-contract` with Hardhat setup
-2. ✅ **Contract implemented**: LabubaNFT.sol with all required features
+2. ✅ **Contract implemented**: BearBrickNFT.sol with all required features
 3. ✅ **Tests comprehensive**: 33 tests covering all requirements
 4. ✅ **Tests pass**: `pnpm --filter labuba-contract test` ✓
 5. ✅ **Build outputs**: ABI and TypeChain types in dist/

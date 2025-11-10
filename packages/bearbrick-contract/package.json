@@ -1,7 +1,7 @@
 {
-  "name": "@lab/labuba-contract",
+  "name": "@lab/bearbrick-contract",
   "version": "0.0.1",
-  "description": "Labuba NFT Smart Contract",
+  "description": "BearBrick NFT Smart Contract",
   "main": "./index.ts",
   "types": "./index.ts",
   "exports": {
@@ -11,8 +11,8 @@
       "types": "./index.ts"
     },
     "./abi": {
-      "require": "./dist/abi/LabubaNFT.json",
-      "import": "./dist/abi/LabubaNFT.json"
+      "require": "./dist/abi/BearBrickNFT.json",
+      "import": "./dist/abi/BearBrickNFT.json"
     },
     "./deployments/*": "./deployments/*.json"
   },
@@ -25,7 +25,7 @@
   ],
   "scripts": {
     "build": "pnpm hardhat compile && pnpm typechain && pnpm copy-artifacts",
-    "copy-artifacts": "mkdir -p dist/abi && cp artifacts/contracts/LabubaNFT.sol/LabubaNFT.json dist/abi/ && cp -r typechain-types dist/",
+    "copy-artifacts": "mkdir -p dist/abi && cp artifacts/contracts/BearBrickNFT.sol/BearBrickNFT.json dist/abi/ && cp -r typechain-types dist/",
     "typechain": "pnpm hardhat typechain",
     "test": "pnpm hardhat test",
     "deploy:base-sepolia": "pnpm hardhat run scripts/deploy.ts --network baseSepolia",
