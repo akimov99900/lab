@@ -1,0 +1,29 @@
+{
+  "name": "@lab/nft-utils",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "NFT utilities for generating BearBrick SVG art and ERC-721 metadata",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "test": "vitest run"
+  },
+  "keywords": ["nft", "svg", "metadata", "bearbrick", "erc-721"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsup": "^7.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}
