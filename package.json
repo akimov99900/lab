@@ -7,6 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm -r build",
+    "build:dependencies": "pnpm -r --filter=@lab/core build && pnpm -r --filter=@lab/nft-utils build && pnpm -r --filter=@lab/farcaster-auth build && pnpm -r --filter=@lab/bearbrick-contract build",
     "test": "pnpm -r test",
     "test:contract": "pnpm --filter @lab/bearbrick-contract test",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",

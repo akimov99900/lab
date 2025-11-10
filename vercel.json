@@ -1,10 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "cd packages/bearbrick-app && pnpm build",
+  "buildCommand": "pnpm install && pnpm run build:dependencies && cd packages/bearbrick-app && pnpm run build",
   "outputDirectory": "packages/bearbrick-app/.next",
-  "installCommand": "pnpm install",
-  "framework": "nextjs",
-  "env": {
-    "NEXT_PUBLIC_BASE_RPC_URL": "https://mainnet.base.org"
-  }
+  "framework": "nextjs"
 }
