@@ -139,7 +139,36 @@ The test suite covers:
 pnpm deploy:base-sepolia
 ```
 
-### Deploy to Base Mainnet
+### Deploy to Base Mainnet (Production)
+
+⚠️ **Production Deployment - Use with Caution**
+
+```bash
+pnpm deploy:base-mainnet
+```
+
+**Mainnet Configuration:**
+- **Network**: Base Mainnet (Chain ID: 8453)
+- **Owner Address**: 0x4CA964d1A084628aFCef42680cC955a263158A8F
+- **Mint Price**: 0.00001 ETH
+- **Royalty**: 2% (200 basis points)
+- **Payment Recipient**: 0x4CA964d1A084628aFCef42680cC955a263158A8F
+
+**Prerequisites:**
+1. Ensure sufficient ETH on Base for deployment gas
+2. Set `PRIVATE_KEY` in `.env` with deployer wallet private key
+3. Set `BASE_RPC_URL` with Base mainnet RPC endpoint
+4. Set `BASESCAN_API_KEY` for contract verification
+
+**Post-Deployment Steps:**
+1. Verify contract on BaseScan:
+   ```bash
+   pnpm verify:base-mainnet <CONTRACT_ADDRESS>
+   ```
+2. Update frontend environment with deployed address
+3. Test contract functionality on mainnet with small amounts
+
+### Deploy to Base Mainnet (Alternative)
 
 ```bash
 pnpm deploy:base
@@ -148,9 +177,13 @@ pnpm deploy:base
 Deployment info is saved to `deployments/{network}.json` with:
 - Contract address
 - Deployer address
+- Owner address
 - Network details
 - Deployment timestamp
+- Transaction hash
 - Configuration summary
+
+The mainnet deployment also saves the contract address to `MAINNET_ADDRESS.txt` for easy reference.
 
 ### Verify Contract
 
@@ -253,8 +286,10 @@ dist/
 | `pnpm test` | Run Hardhat tests |
 | `pnpm deploy:base-sepolia` | Deploy to Base Sepolia testnet |
 | `pnpm deploy:base` | Deploy to Base mainnet |
+| `pnpm deploy:base-mainnet` | Deploy to Base mainnet (production script) |
 | `pnpm verify:base-sepolia` | Verify contract on Base Sepolia |
 | `pnpm verify:base` | Verify contract on Base mainnet |
+| `pnpm verify:base-mainnet` | Verify contract on Base mainnet |
 | `pnpm clean` | Clean build artifacts |
 
 ## Security Considerations

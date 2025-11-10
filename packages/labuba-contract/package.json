@@ -30,8 +30,10 @@
     "test": "pnpm hardhat test",
     "deploy:base-sepolia": "pnpm hardhat run scripts/deploy.ts --network baseSepolia",
     "deploy:base": "pnpm hardhat run scripts/deploy.ts --network base",
+    "deploy:base-mainnet": "pnpm hardhat run scripts/deploy-mainnet.ts --network base-mainnet",
     "verify:base-sepolia": "pnpm hardhat verify --network baseSepolia",
     "verify:base": "pnpm hardhat verify --network base",
+    "verify:base-mainnet": "pnpm hardhat verify --network base-mainnet",
     "clean": "pnpm hardhat clean && rm -rf dist typechain-types"
   },
   "keywords": [
