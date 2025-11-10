@@ -4,11 +4,6 @@
   "outputDirectory": "packages/bearbrick-app/.next",
   "installCommand": "pnpm install",
   "framework": "nextjs",
-  "functions": {
-    "packages/bearbrick-app/.next/server/app/**/*.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "env": {
     "NEXT_PUBLIC_BASE_RPC_URL": "https://mainnet.base.org"
   }
