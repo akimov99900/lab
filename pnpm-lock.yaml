@@ -94,6 +94,24 @@ importers:
         specifier: ^5.0.0
         version: 5.9.3
 
+  packages/color-extraction:
+    devDependencies:
+      '@types/node':
+        specifier: ^20.0.0
+        version: 20.19.24
+      eslint:
+        specifier: ^8.0.0
+        version: 8.57.1
+      tsup:
+        specifier: ^7.0.0
+        version: 7.3.0(postcss@8.5.6)(ts-node@10.9.2(@types/node@20.19.24)(typescript@5.9.3))(typescript@5.9.3)
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+      vitest:
+        specifier: ^1.0.0
+        version: 1.6.1(@types/node@20.19.24)(@vitest/ui@1.6.1)(jsdom@23.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+
   packages/core:
     devDependencies:
       tsup:
@@ -5072,7 +5090,7 @@ snapshots:
       pathe: 1.1.2
       picocolors: 1.1.1
       sirv: 2.0.4
-      vitest: 1.6.1(@types/node@22.7.5)(@vitest/ui@1.6.1)(jsdom@23.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
+      vitest: 1.6.1(@types/node@20.19.24)(@vitest/ui@1.6.1)(jsdom@23.2.0(bufferutil@4.0.9)(utf-8-validate@5.0.10))
 
   '@vitest/utils@1.6.1':
     dependencies:
