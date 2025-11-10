@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "rootDirectory": "packages/bearbrick-app",
   "buildCommand": "cd packages/bearbrick-app && pnpm build",
   "outputDirectory": "packages/bearbrick-app/.next",
   "installCommand": "pnpm install",
