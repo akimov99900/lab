@@ -1,6 +1,7 @@
 {
   "version": 2,
-  "buildCommand": "pnpm install && pnpm run build:dependencies && cd packages/bearbrick-app && pnpm run build",
-  "outputDirectory": "packages/bearbrick-app/.next",
+  "rootDirectory": "packages/bearbrick-app",
+  "buildCommand": "cd ../.. && pnpm install --frozen-lockfile && pnpm run build:dependencies && cd packages/bearbrick-app && pnpm run build",
+  "outputDirectory": ".next",
   "framework": "nextjs"
 }
