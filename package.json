@@ -8,6 +8,7 @@
   "scripts": {
     "build": "pnpm -r build",
     "build:dependencies": "pnpm -r --filter=@lab/core build && pnpm -r --filter=@lab/nft-utils build && pnpm -r --filter=@lab/farcaster-auth build && pnpm -r --filter=@lab/bearbrick-contract build",
+    "postinstall": "pnpm run build:dependencies",
     "test": "pnpm -r test",
     "test:contract": "pnpm --filter @lab/bearbrick-contract test",
     "lint": "eslint . --ext .ts,.tsx,.js,.jsx",
@@ -26,6 +27,13 @@
   "pnpm": {
     "overrides": {
       "typescript": "^5.0.0"
-    }
+    },
+    "onlyBuiltDependencies": [
+      "bufferutil",
+      "esbuild",
+      "keccak",
+      "secp256k1",
+      "utf-8-validate"
+    ]
   }
 }
