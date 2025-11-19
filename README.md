@@ -23,7 +23,7 @@ This workspace contains a collection of reusable TypeScript/JavaScript packages 
 
 ### Prerequisites
 
-- Node.js 18.x or higher
+- Node.js 20.x or higher
 - pnpm 8.x or higher
 
 ### Installation

@@ -13,7 +13,7 @@ A Next.js application for generating and minting BearBrick NFTs on Base network.
 
 ### Prerequisites
 
-- Node.js 18.x or higher
+- Node.js 20.x or higher
 - pnpm 8.x or higher
 
 ### Installation
