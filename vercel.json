@@ -1,6 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "pnpm install && pnpm run build:dependencies && cd packages/bearbrick-app && pnpm build",
-  "outputDirectory": "packages/bearbrick-app/.next",
-  "framework": "nextjs"
+  "buildCommand": "cd packages/bearbrick-app && pnpm build",
+  "outputDirectory": "packages/bearbrick-app/.next"
 }
