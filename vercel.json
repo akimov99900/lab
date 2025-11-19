@@ -1,5 +1,5 @@
 {
   "version": 2,
-  "buildCommand": "cd packages/bearbrick-app && pnpm build",
+  "buildCommand": "pnpm run build:dependencies && cd packages/bearbrick-app && pnpm build",
   "outputDirectory": "packages/bearbrick-app/.next"
 }
