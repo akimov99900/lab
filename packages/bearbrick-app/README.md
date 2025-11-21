@@ -94,4 +94,10 @@ This app is designed to work with the `@lab/bearbrick-contract` package. The gen
 
 ## Deployment
 
-This app is configured for deployment on Vercel with monorepo support. See the root `vercel.json` for configuration.
+This app is configured for deployment on Vercel with monorepo support. The root `vercel.json` defines the build command:
+
+```bash
+pnpm -w run build:dependencies && cd packages/bearbrick-app && pnpm build
+```
+
+The `-w` flag (a shortcut for `--workspace-root`) ensures the dependency build script always runs from the workspace root before the BearBrick app build kicks off.
